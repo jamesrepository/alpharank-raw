@@ -1,0 +1,120 @@
+/* Small devices (tablets, 480px and up) */
+@media (min-width: 480px) {
+	.main-nav {
+		margin-top: 5rem;
+		h1 {
+			float: left;
+		}
+		ul {
+	    	float: right;
+	    	margin: 4px 0 0;
+		}
+	}
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+	h2 {
+		font-size: 58px;
+	}
+	.sect-hiw,
+	.sect-clients,
+	.sect-timeline,
+	.sect-contacts,
+	.sect-api {
+	    padding: 80px 0;
+	}
+
+	.hero-vd {
+		height: 100%;
+	}
+	.header {
+		height: 100%;
+	}
+
+	.hero-container {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+    	max-width: 930px;
+	    margin: 0 auto;
+	    padding: 0 15px;
+	    text-align: center;
+	    color: #fff;
+	    transform: translateY(-50%);
+	    -webkit-transform: translateY(-50%);
+	    -moz-transform: translateY(-50%);
+	    -o-transform: translateY(-50%);
+    	p {
+    		font-size: 2.4rem;
+    	}
+	}
+	.h-title {
+		width: 600px;
+		font-size: 5.8rem;
+	}
+	.timeline-cont {
+		li {
+			width: 25%;
+			.year-title {
+				&:before {
+					display: block;
+				}
+			}
+		}
+	}
+	.sect-clients {
+		padding: 80px 0 50px;
+	}
+	.offices {
+	    position: absolute;
+	    top: 50%;
+	    left: 10%;
+	    width: 60%;
+	    transform: translateY(-50%);
+	    margin: 0;
+	    h4 {
+	    	margin-top: 10px;
+	    }
+	}
+	#map {
+		margin-bottom: 50px;
+	}
+	.sect-contacts {
+		h3 {
+			font-size: 3.4rem;
+		}
+	}
+	.lr-cont {
+    	padding: 50px 30px;
+	    width: 600px;
+	    height: 600px;
+	}
+	.fp-left {
+    	float: left;
+	}
+	.signup-right {
+    	float: right;
+	}
+}
+
+// /* Medium devices (desktops, 992px and up) */
+ @media (min-width: 992px) {
+	.offices {
+	    width: 35%;
+	}
+ }
+
+// Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+	#bgvid {
+		width: 100%;
+		height: auto;
+	}
+}// Large devices (large desktops, 1500px and up)
+@media (min-width: 1500px) {
+	.page-login {
+		width: 100%;
+		height: 100%;
+	}
+}

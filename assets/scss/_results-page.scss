@@ -1,0 +1,52 @@
+.big-data-box {
+	margin-top: 30px;
+    margin-bottom: 15px;
+    padding: 40px 15px;
+    text-align: center;
+    background: #323234;
+    span {
+	    font-size: 4em;
+	    font-family: 'Raleway', sans-serif;
+	    font-weight: 900;
+	    color: $green;
+    }
+}
+.data-title {
+    display: block;
+    text-align: center;
+    font-size: 1.4em;
+    color: $white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.merchant-cont {
+	margin-top: 50px;
+	text-align: left;
+	h3 {
+	    font-size: 2em;
+	    color: #eee;
+	}
+}
+.merchant-lists {
+    list-style: none;
+    padding-left: 0;
+    .mlist {
+	    display: inline-block;
+	    background: #323234;
+	    color: #fff;
+	    margin: 10px 10px 10px 0;
+	    padding: 15px;
+	    font-size: 1.4em;
+	    font-family: 'Raleway', sans-serif;
+	    font-weight: 700;
+	    letter-spacing: 1px;
+    }
+}
+.geographic-cont {
+	margin-top: 50px;
+}
+.geographic-lists {
+	display: none;
+}

@@ -1,0 +1,68 @@
+.upload-cont {
+    h3 {
+		font-size: 1.6em;
+	    letter-spacing: 0.075em;
+	    color: #d0cfcf;
+	    font-weight: 600;
+	    line-height: 1.6;
+    }
+    p {
+	    font-size: 1.4em;
+    	color: #d0cfcf;
+    }
+}
+.upcloud {
+    padding: 12px 7px;
+	background: #02b08c;
+    border-radius: 25px;
+}
+.upload-content {
+	text-align: left;
+}
+.dot-list {
+	list-style: none;
+	li {
+	    position: relative;
+	    margin-bottom: 10px;
+	    font-size: 1.4em;
+	    color: #d0cfcf;
+	    &:before {
+    	    content: '';
+		    position: absolute;
+		    left: -15px;
+		    top: 6px;
+		    display: block;
+		    width: 6px;
+		    height: 6px;
+		    background: $green;
+		    border-radius: 3px;
+	    }
+	}
+}
+.f-upload-csv {
+    margin: 0 0 25px 0;
+    padding: 10px 35px;
+    text-align: center;
+    .form-submit {
+	    margin: 10px auto 0;
+    }
+    .inputfile {
+	    width: 0.1px;
+	    height: 0.1px;
+	    opacity: 0;
+	    overflow: hidden;
+	    position: absolute;
+	    z-index: -1;
+    }
+    .filename {
+    	display: block;
+	    margin-bottom: 30px;
+	    font-size: 1.4em;
+	    cursor: pointer;
+	    .fa {
+    	    margin-right: 10px;
+		    font-size: 1em;
+		    color: $green;
+	    }
+    }
+}
