@@ -61,7 +61,7 @@ var Login = React.createClass({
 		            <input type="submit" className="bround" value="LOGIN" />
 		          </div>
 		        </form>
-		        <p className="clearfix"><a className="fp-left" href="/signup">Forgot password?</a><span className="signup-right">Don't have an account? <a href="#">Sign up</a></span> </p>
+		        <p className="clearfix"><a className="fp-left" href="#">Forgot password?</a><span className="signup-right">Don't have an account? <a href="/signup">Sign up</a></span> </p>
 		      	<div className="message">
 				</div>
 		      </div>
