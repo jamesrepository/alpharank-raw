@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router();
 var path = require('path')
 var request = require('request')
+var session = require('express-session');
 
 router.post('/', function(req, res, next){
 	var name = req.body.name
@@ -19,7 +20,7 @@ router.post('/', function(req, res, next){
 	console.log(data)
 	request({
 	  method: 'POST',
-	  url: 'https://api.alpharank.io/api/v1/users',
+	  url: 'https://api.alpharank.io/v1/users',
 	  headers: {
 	    'Content-Type': 'application/json'
 	  },
@@ -31,6 +32,7 @@ router.post('/', function(req, res, next){
 	  		status: "success",
 	  		response: body
 	  	}
+	  	req.session.name = name;
 	  	res.send(result)
 	  }
 	  else{

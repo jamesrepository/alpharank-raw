@@ -3,6 +3,7 @@ var app = express()
 var port = process.env.PORT || 8080
 var path = require('path')
 var bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
 var session = require('express-session')
 var router = express.Router()
 var index = require('./routes/index')
@@ -14,10 +15,10 @@ var login_process = require('./routes/login_process')
 var home = require('./routes/home')
 var upload_process = require('./routes/upload_process')
 var email_verification = require('./routes/email_verification')
-var twitter = require('./routes/twitter')
 var influencers = require('./routes/influencers')
 var up_process = require('./routes/upload_loading')
 var download = require('./routes/download')
+var RedisStore = require('connect-redis')(session)
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx')
@@ -25,6 +26,7 @@ app.engine('jsx', require('express-react-views').createEngine())
 
 app.use(bodyParser.json({limit: '5000mb'}));
 app.use(bodyParser.urlencoded({limit: '5000mb', extended: true}));
+app.use(cookieParser('ifu438ujfsoifj30cmsdijfi4'))
 app.use(session({secret: "ifu438ujfsoifj30cmsdijfi4", resave: true, saveUninitialized: true, cookie : {maxAge: 60000}}));
 
 app.use('/', index)
@@ -32,11 +34,10 @@ app.use('/signup', signup)
 app.use('/signup_process', signup_process)
 app.use('/login', login)
 app.use('/login_process', login_process)
-app.use('/home', home)
+app.use('/home/', home)
 app.use('/upload_process', upload_process)
 app.use('/api', api)
 app.use('/email_verification', email_verification)
-app.use('/twitter', twitter)
 app.use('/influencers', influencers)
 app.use('/process', up_process)
 app.use('/download', download)

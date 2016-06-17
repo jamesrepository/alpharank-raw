@@ -39,19 +39,56 @@ var Signup = React.createClass({
 	},
 	render(){
 		return(
-			<div className="signup-wrap">
-				<form className="signup-form" onSubmit={this.handleSubmit}>
-					<input type="text" name="first_name" placeholder="First Name" />
-					<input type="text" name="last_name" placeholder="Last Name" />
-					<input type="text" name="email" placeholder="Email" />
-					<input type="text" name="username" placeholder="Username" />
-					<input type="password" name="password" placeholder="Password" />
-					<input type="password" name="con_password" placeholder="Confirm Password" />
-					<input type="submit" value="Sign Up" />
-				</form>
-				<div className="message">
+			<div className="page page-login">
+		      <div className="lr-cont">
+		        <div className="site-logo">
+		            <h1><a href="/"><img src="images/alpharank_logo_white.svg" width="218" height="25" alt="AlphaRank Logo" /></a></h1>
+		        </div>
+		        <form id="lr-form" onSubmit={this.handleSubmit}>
+		        	<span className="input input--hoshi">
+		            <input className="input__field input__field--hoshi" type="text" name="first_name" id="first_name" required/>
+		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="first_name">
+		              <span className="input__label-content input__label-content--hoshi">First Name</span>
+		            </label>
+		          </span>
+		          <span className="input input--hoshi">
+		            <input className="input__field input__field--hoshi" type="text" name="last_name" id="last_name" required/>
+		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="last_name">
+		              <span className="input__label-content input__label-content--hoshi">Last Name</span>
+		            </label>
+		          </span>
+		          <span className="input input--hoshi">
+		            <input className="input__field input__field--hoshi" type="text" name="email" id="email" required/>
+		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="email">
+		              <span className="input__label-content input__label-content--hoshi">Email</span>
+		            </label>
+		          </span>
+		          <span className="input input--hoshi">
+		            <input className="input__field input__field--hoshi" type="text" name="username" id="username" required/>
+		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="username">
+		              <span className="input__label-content input__label-content--hoshi">Username</span>
+		            </label>
+		          </span>
+		          <span className="input input--hoshi">
+		            <input className="input__field input__field--hoshi" type="password" name="password" id="password" required/>
+		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="password">
+		              <span className="input__label-content input__label-content--hoshi">Password</span>
+		            </label>
+		          </span>
+		          <span className="input input--hoshi">
+		            <input className="input__field input__field--hoshi" type="text" name="confirm" id="confirm" required/>
+		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="confirm">
+		              <span className="input__label-content input__label-content--hoshi">Confirm Password</span>
+		            </label>
+		          </span>
+		          <div className="input-group form-submit">
+		            <input type="submit" className="bround" value="SIGNUP" />
+		          </div>
+		        </form>
+		      	<div className="message">
 				</div>
-			</div>
+		      </div>
+		    </div>
 		)
 	}
 })

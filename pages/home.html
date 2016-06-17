@@ -27,13 +27,44 @@
   <body class="page page-user">
     <div id="root">
     </div>
-    
+    <section class="sect-user">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-md-2 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+                <div class="upload-cont">
+                    <div class="h-icon"><img class="upcloud" src="images/upcloud.png" alt="" /></div>
+                    <h2>Upload Transactional Data Set</h2>
+                    <div class="upload-content">
+                      <h3>Import data using CSV. Please double check if you have the following criteria before importing:</h3>
+                      <p>Make sure all the following required columns are filled in.</p>
+                      <ul class="dot-list">
+                        <li>CustomerID</li>
+                        <li>TransactionalTotal</li>
+                        <li>ProductID</li>
+                        <li>Product Category</li>
+                        <li>Timestamp</li>
+                      </ul>
+                      <form class="f-upload-csv" action="/upload_process" name="upload-csv" method="post">
+                        <div class="input-group form-submit">
+                          <input type="file" name="file" id="file" class="inputfile" />
+                          <label class="filename" for="file"><i class="fa fa-file-text"></i><span>Choose a file</span></label>
+                          <input type="submit" class="bround" name="upload-btn" id="upload-btn" value="UPLOAD" />
+                        </div>
+                      </form>
+                    </div>
+
+                </div>
+              </div>    
+            </div>
+          </div>
+        </section>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/babel" src="src/home.js"></script>
     <script>
       // Upload File Js   
       'use strict';
@@ -69,5 +100,4 @@
       })( jQuery, window, document );
     </script>
   </body>
-  <script type="text/babel" src="src/home.js"></script>
 </html>
