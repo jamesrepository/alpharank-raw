@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path')
 
 router.get('/', function(req, res, next){
-	res.send("Please check your email to activate/verify your account.");
+	res.sendFile(path.join(__dirname, '../pages', '/web-app.html'))
 })
 
 module.exports = router;

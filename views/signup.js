@@ -24,7 +24,7 @@ var Signup = React.createClass({
 			success: function(result){
 				var response = JSON.parse(result.response)
 				if(result.status === "error"){
-					window.location.href = "/verification"
+					window.location.href = "/email_verification"
 				}
 				else{
 					$(".message").hide();

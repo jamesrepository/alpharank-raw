@@ -47,7 +47,7 @@ var Upload = React.createClass({
 					}, 10000);					
 				}
 				else{
-					window.location.href= "/home"
+					window.location.href= "/process"
 				}
 			}
 		})
