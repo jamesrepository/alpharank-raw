@@ -30,13 +30,21 @@ var Influencers = React.createClass({
 			}]
 		})
 	},
+	handleChange(e){
+		var value = e.target.value
+		this.state.influencers.filter(
+			(influencer) => {
+				return influencer.first_name.indexOf(value.toString()) !== -1;
+			}
+		)
+	},
 	render(){
 		return(
 			<div className="wrap">
 			<div className="container">
 				  <form action="">
 		            <div className="form-group">
-		              <input type="text" className="form-control search-box" placeholder="Search for influencers" />
+		              <input type="text" className="form-control search-box" onChange={this.handleChange} placeholder="Search for influencers" />
 		            </div>
 		            <div className="row">
 		              <div className="col-xs-12 col-md-3">
