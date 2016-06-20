@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path')
 
 router.get('/', function(req, res, next){
-	res.sendFile(path.join(__dirname, '../pages', '/download.html'))
+	res.sendFile(path.join(__dirname, '../pages', '/results.html'))
 })
 
 module.exports = router;

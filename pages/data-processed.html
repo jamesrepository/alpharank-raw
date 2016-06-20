@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Alpharank Verify Email</title>
+    <title>Alpharank Processing</title>
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet">
 
@@ -40,12 +40,26 @@
 
     <section class="sect-user">
       <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-            <h2>Welcome!</h2>
-            <p class="wmessage">Thanks for joining AlphaRank! We've just sent you an email verification. Please check your email to verify it. Or click the button below.</p>
-          </div>    
-        </div>
+          <form action="" class="post">
+            <div class="row">
+              <div class="col-xs-12 col-sm-10 col-md-10 col-md-offset-1">
+                <h2 class="bhead" data-sr='enter bottom, move 30px, wait 0.2s'>Thank You! Your data is being processed.</h2>
+                <p class="wmessage" data-sr='enter bottom, move 30px, wait 0.4s'>We will notify you when it’s ready to view</p>
+                <div class="progress-bar" data-sr='enter bottom, move 30px, wait 0.6s'>
+                  <div class="progress"></div>
+                  <span class="progress-num" data-pv='100' ></span>
+                </div>
+                <div class="name-list">
+                  <label for="listName" data-sr='enter bottom, move 30px, wait 0.8s'>Name your list?</label>
+                  <input type="text" class="input-listname" placeholder="Elite List" required data-sr='enter bottom, move 30px, wait 1s'>
+                </div>
+                <div class="foot-block" data-sr='enter bottom, move 30px, wait 1.2s'>
+                  <em class="btn-process-overlay"></em>
+                  <a class="btn-disable bround" href="/results">VIEW</a>
+                </div>
+              </div>
+            </div>
+          </form>
       </div>
     </section>
     
@@ -54,6 +68,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+    <script>
+      $(function() {
+
+        //Animated Progress
+        var progress = $('.progress-num');
+        var progress_data = progress.data('pv');
+        var pwidth = progress.prev('.progress');
+        var i = 0;
+
+          setInterval(function() {
+            if( i <= progress_data) {
+              progress.css("left", i +'%');
+              pwidth.css("width", i + '%');
+              progress.html(i+'%');
+            }
+            i++
+
+            if(i == 100) {
+              $('.btn-process-overlay').css("display", "none");
+              $('.btn-disable').removeClass("btn-disable");
+            }
+          }, 120);
+
+      });
+    </script>
   </body>
 </html>

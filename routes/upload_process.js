@@ -21,7 +21,7 @@ router.post('/', function(req, res, next){
 	  console.log('Status:', response.statusCode);
 	  console.log('Headers:', JSON.stringify(response.headers));
 	  console.log('Response:', body);
-	  res.redirect('/process')
+	  res.redirect('/data_processed')
 	});
 
 })

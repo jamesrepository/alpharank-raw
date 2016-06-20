@@ -16,8 +16,8 @@ var home = require('./routes/home')
 var upload_process = require('./routes/upload_process')
 var email_verification = require('./routes/email_verification')
 var influencers = require('./routes/influencers')
-var up_process = require('./routes/upload_loading')
-var download = require('./routes/download')
+var data_processed = require('./routes/data_processed')
+var results = require('./routes/results')
 var RedisStore = require('connect-redis')(session)
 
 app.set('views', __dirname + '/views');
@@ -39,8 +39,8 @@ app.use('/upload_process', upload_process)
 app.use('/api', api)
 app.use('/email_verification', email_verification)
 app.use('/influencers', influencers)
-app.use('/process', up_process)
-app.use('/download', download)
+app.use('/data_processed', data_processed)
+app.use('/results', results)
 //src
 app.use('/src', express.static('views'))
 

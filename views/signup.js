@@ -45,46 +45,60 @@ var Signup = React.createClass({
 		            <h1><a href="/"><img src="images/alpharank_logo_white.svg" width="218" height="25" alt="AlphaRank Logo" /></a></h1>
 		        </div>
 		        <form id="lr-form" onSubmit={this.handleSubmit}>
-		        	<span className="input input--hoshi">
-		            <input className="input__field input__field--hoshi" type="text" name="first_name" id="first_name" required/>
-		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="first_name">
-		              <span className="input__label-content input__label-content--hoshi">First Name</span>
-		            </label>
-		          </span>
-		          <span className="input input--hoshi">
-		            <input className="input__field input__field--hoshi" type="text" name="last_name" id="last_name" required/>
-		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="last_name">
-		              <span className="input__label-content input__label-content--hoshi">Last Name</span>
-		            </label>
-		          </span>
-		          <span className="input input--hoshi">
-		            <input className="input__field input__field--hoshi" type="text" name="email" id="email" required/>
-		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="email">
-		              <span className="input__label-content input__label-content--hoshi">Email</span>
-		            </label>
-		          </span>
-		          <span className="input input--hoshi">
-		            <input className="input__field input__field--hoshi" type="text" name="username" id="username" required/>
-		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="username">
-		              <span className="input__label-content input__label-content--hoshi">Username</span>
-		            </label>
-		          </span>
-		          <span className="input input--hoshi">
-		            <input className="input__field input__field--hoshi" type="password" name="password" id="password" required/>
-		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="password">
-		              <span className="input__label-content input__label-content--hoshi">Password</span>
-		            </label>
-		          </span>
-		          <span className="input input--hoshi">
-		            <input className="input__field input__field--hoshi" type="text" name="confirm" id="confirm" required/>
-		            <label className="input__label input__label--hoshi input__label--hoshi-color-1" for="confirm">
-		              <span className="input__label-content input__label-content--hoshi">Confirm Password</span>
-		            </label>
-		          </span>
-		          <div className="input-group form-submit">
-		            <input type="submit" className="bround" value="SIGNUP" />
-		          </div>
-		        </form>
+				  <div className="row">
+				   <div className="col-xs-12 col-xs-6">
+				    <span className="input input--hoshi">
+				    	<input type="text" className="input__field input__field--hoshi" name="first_name" id="first_name" required="" />
+				    	<label className="input__label input__label--hoshi input__label--hoshi-color-1">
+				    		<span className="input__label-content input__label-content--hoshi">First Name</span>
+				    	</label>
+				    </span>
+				   </div>
+				   <div className="col-xs-12 col-xs-6">
+				  	<span className="input input--hoshi">
+				  		<input type="text" className="input__field input__field--hoshi" name="last_name" id="last_name" required="" />
+				  		<label className="input__label input__label--hoshi input__label--hoshi-color-1">
+				  			<span className="input__label-content input__label-content--hoshi">Last Name</span>
+				  		</label>
+				  	</span>
+				   </div>
+				   <div className="col-xs-12">
+					  <span className="input input--hoshi">
+					  	<input type="text" className="input__field input__field--hoshi" name="email" id="email" required="" />
+					  	<label className="input__label input__label--hoshi input__label--hoshi-color-1">
+					  		<span className="input__label-content input__label-content--hoshi">Email</span>
+					  	</label>
+					  </span>
+				   </div>
+				   <div className="col-xs-12">
+				  	<span className="input input--hoshi">
+				  		<input type="text" className="input__field input__field--hoshi" name="username" id="username" required="" />
+				  		<label className="input__label input__label--hoshi input__label--hoshi-color-1">
+				  			<span className="input__label-content input__label-content--hoshi">Username</span>
+				  		</label>
+				  	</span>
+				 </div>
+				   <div className="col-xs-12">
+				  	<span className="input input--hoshi">
+				  		<input type="password" className="input__field input__field--hoshi" name="password" id="password" required="" />
+				  		<label className="input__label input__label--hoshi input__label--hoshi-color-1">
+				  			<span className="input__label-content input__label-content--hoshi">Password</span>
+				  		</label>
+				  	</span>
+				 </div>
+				   <div className="col-xs-12">
+				  	<span className="input input--hoshi">
+				  		<input type="password" className="input__field input__field--hoshi" name="confirm" id="confirm" required="" />
+				  		<label className="input__label input__label--hoshi input__label--hoshi-color-1">
+				  			<span className="input__label-content input__label-content--hoshi">Confirm Password</span>
+				  		</label>
+				  	</span>
+				 </div>
+
+				  </div>
+				  
+				 <div className="input-group form-submit"><input type="submit" className="bround" value="SIGNUP" /></div>
+				</form>
 		      	<div className="message">
 				</div>
 		      </div>
@@ -97,3 +111,37 @@ ReactDOM.render(
 	<Signup />,
 	document.getElementById('root')
 )
+
+$(function() {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+          (function() {
+            // Make sure we trim BOM and NBSP
+            var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+            String.prototype.trim = function() {
+              return this.replace(rtrim, '');
+            };
+          })();
+        }
+
+        [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+          // in case the input is already filled..
+          if( inputEl.value.trim() !== '' ) {
+            classie.add( inputEl.parentNode, 'input--filled' );
+          }
+
+          // events:
+          inputEl.addEventListener( 'focus', onInputFocus );
+          inputEl.addEventListener( 'blur', onInputBlur );
+        } );
+
+        function onInputFocus( ev ) {
+          classie.add( ev.target.parentNode, 'input--filled' );
+        }
+
+        function onInputBlur( ev ) {
+          if( ev.target.value.trim() === '' ) {
+            classie.remove( ev.target.parentNode, 'input--filled' );
+          }
+        }
+      });
