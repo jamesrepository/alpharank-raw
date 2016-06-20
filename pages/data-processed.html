@@ -77,7 +77,8 @@
         var progress_data = progress.data('pv');
         var pwidth = progress.prev('.progress');
         var i = 0;
-
+          $(".btn-disable").css("background", "gray");
+          $(".btn-disable").css("color", "white");
           setInterval(function() {
             if( i <= progress_data) {
               progress.css("left", i +'%');
@@ -89,9 +90,10 @@
             if(i == 100) {
               $('.btn-process-overlay').css("display", "none");
               $('.btn-disable').removeClass("btn-disable");
+              $('.bround').css("background", "#13B28B")
+              $('.bround').css("color", "white")
             }
           }, 120);
-
       });
     </script>
   </body>
