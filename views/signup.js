@@ -23,7 +23,7 @@ var Signup = React.createClass({
 		    data: JSON.stringify(data),
 			success: function(result){
 				var response = JSON.parse(result.response)
-				if(result.status === "error"){
+				if(result.status !== "error"){
 					window.location.href = "/email_verification"
 				}
 				else{
