@@ -18,11 +18,10 @@ var Login = React.createClass({
 			success: function(result){
 				var response = JSON.parse(result.response)
 				if(result.status === "error"){
-					$(".message").hide();
-					$(".message").html("<span>" + response.error_message + "</span>");
-					$(".message").show("slow");
+					$(".message").html("<span style='display:none; color: red'>" + response.error_message + "</span>");
+					$(".message span").show("slow");
 					setTimeout(function(){
-						$(".message").hide("slow");
+						$(".message span").hide("slow");
 					}, 10000);					
 				}
 				else{
