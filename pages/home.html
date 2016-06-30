@@ -46,10 +46,8 @@
                       </ul>
                       <form class="f-upload-csv" action="/upload_process" enctype="multipart/form-data" method="post">
                         <div class="input-group form-submit">
-                          <input type="file" name="data_file" id="file" class="inputfile" onchange="uploadFile()"/>
-
+                          <input type="file" name="data_file" id="file" class="inputfile" onchange="uploadFile()" />
                           <label class="filename" for="file"><i class="fa fa-file-text"></i><span>Choose a file</span></label>
-
                         </div>
                       </form>
                     </div>
@@ -101,12 +99,15 @@
       })( jQuery, window, document );
 
       function uploadFile(){
-        var input = document.getElementById("file");
+        var input = document.getElementById('file');
 
         var request = new XMLHttpRequest();
+
         request.open('POST', 'https://api.alpharank.io/v1/uploads');
-        request.setRequestHeader('x-auth-token', '4274bd9059cf4ae6b5d339108cb7e78f');
-                
+
+        request.setRequestHeader('Content-Type', 'multipart/form-data; boundary=---BOUNDARY');
+        request.setRequestHeader('x-auth-token', "edcfa26175484c0e85544ea9874f56af");
+
         request.onreadystatechange = function () {
           if (this.readyState === 4) {
             console.log('Status:', this.status);
@@ -115,10 +116,15 @@
           }
         };
 
+        var body = "-----BOUNDARY \
+        Content-Disposition: form-data; name=data_file; filename='records.csv' \
+        Content-Type: text/plain \
+        Column 1, Column 2 \n Row 1-1, Row 1-2 \
+        -----BOUNDARY";
+
         var data = new FormData();
         data.append('data_file', input.files[0]);
-
-        request.send(data);
+      request.send(data);
       }
     </script>
   </body>
