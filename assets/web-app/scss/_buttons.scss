@@ -1,0 +1,61 @@
+.btn-primary {
+    margin: 10px;
+    width: 200px;
+    background: transparent;
+    font-size: 2rem;
+    padding: 12px 34px;
+    border-color: #fff;
+    font-family: Montserrat, sans-serif;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    &:hover,
+    &:focus {
+    	border-color: #13B28B;
+    	background: #13B28B;
+    	color: #fff;
+    }
+    .fa {
+	    position: relative;
+	    font-size: 24px;
+	    margin-right: 10px;
+	    top: 2px;
+    }
+}
+.btn-green {
+    margin: 10px;
+    width: auto;
+    color: #fff;
+    background: #13B28B;
+    font-size: 2rem;
+    padding: 12px 34px;
+    border: none;
+    font-family: Montserrat, sans-serif;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+    &:hover,
+    &:focus {
+    	color: #fff;
+    	opacity: 0.8;
+    }
+}
+.btn-download {
+    padding: 12px 20px;
+    margin: 10px 0;
+    .fa {
+    	margin-right: 5px;
+    }
+}
+.btn-next {
+	position: relative;
+	padding: 12px 48px 12px 38px;
+	margin: 10px 0;
+	.fa {
+        position: absolute;
+	    font-size: 3rem;
+	    top: 11px;
+	    margin-left: 12px;
+	}
+}

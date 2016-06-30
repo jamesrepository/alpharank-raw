@@ -1,3 +1,81 @@
+var Filters = React.createClass({
+	render(){
+		return(
+			<div className="app-filter-cont">
+                <form>
+                  <div className="row">
+                    <div className="col-md-3">
+                      <div className="filter-box">
+                        <h3 className="filter-title">Location</h3>
+                        <div className="checkbox-cont">
+                            <input id='zipOne' type='checkbox' />
+                            <label for='zipOne'>
+                              <span></span>
+                              90001
+                              <ins><i>90001</i></ins>
+                            </label>
+                        </div>
+                        <div className="checkbox-cont">
+                            <input id='zip1' type='checkbox' />
+                            <label for='zip1'>
+                              <span></span>
+                              90124
+                              <ins><i>90124</i></ins>
+                            </label>
+                        </div>
+                        <div className="checkbox-cont">
+                            <input id='zip2' type='checkbox' />
+                            <label for='zip2'>
+                              <span></span>
+                              9004
+                              <ins><i>9004</i></ins>
+                            </label>
+                        </div>
+                        <div className="checkbox-cont">
+                            <input id='zip3' type='checkbox' />
+                            <label for='zip3'>
+                              <span></span>
+                              9011
+                              <ins><i>9011</i></ins>
+                            </label>
+                        </div>
+                        <div className="checkbox-cont">
+                            <input id='zip4' type='checkbox' />
+                            <label for='zip4'>
+                              <span></span>
+                              9016
+                              <ins><i>9016</i></ins>
+                            </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-md-3">
+                      <div className="filter-box">
+                        <h3 className="filter-title">Gender</h3>
+                        <div className="checkbox-cont">
+                            <input id='male' type='checkbox' />
+                            <label for='male'>
+                              <span></span>
+                              Male
+                              <ins><i>Male</i></ins>
+                            </label>
+                        </div>
+                        <div className="checkbox-cont">
+                            <input id='female' type='checkbox' />
+                            <label for='female'>
+                              <span></span>
+                              Female
+                              <ins><i>Female</i></ins>
+                            </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+		)
+	}
+})
 var Influencers = React.createClass({
 	getInitialState(){
 		return({
@@ -27,93 +105,132 @@ var Influencers = React.createClass({
 				value: 20000,
 				img_url: "",
 				no_of_influence: 2000
-			}]
+			},
+			{
+				first_name: 'John',
+				last_name: 'Doe',
+				email: 'hello@yahoo.com',
+				username: 'rt84w0fhdsofjdsf',
+				value: 20000,
+				img_url: "",
+				no_of_influence: 2000
+			}],
+			twitter: [],
+			facebook: [],
+			instagram: []
 		})
 	},
-	handleChange(e){
-		var value = e.target.value
-		this.state.influencers.filter(
-			(influencer) => {
-				return influencer.first_name.indexOf(value.toString()) !== -1;
+	getTwitter(username){
+		$.get("/twitter/" + username, function(result){
+			if(result.length !== 0){
+				this.state.twitter.push(result)
 			}
-		)
+		}.bind(this));
+	},
+	displayTwitter(){
+		console.log(this.state.twitter)
 	},
 	render(){
-		return(
-			<div className="wrap">
+		var parent = this
+		return (
 			<div className="container">
-				  <form action="">
-		            <div className="form-group">
-		              <input type="text" className="form-control search-box" onChange={this.handleChange} placeholder="Search for influencers" />
-		            </div>
-		            <div className="row">
-		              <div className="col-xs-12 col-md-3">
-		                <select className="form-control">
-		                  <option>Location</option>
-		                  <option>USA</option>
-		                  <option>Philippines</option>
-		                  <option>Russia</option>
-		                  <option>Japan</option>
-		                </select>
-		              </div>
-		              <div className="col-xs-12 col-md-3">
-		                <select className="form-control">
-		                  <option>Gender</option>
-		                  <option>Male</option>
-		                  <option>Female</option>
-		                </select>
-		              </div>
-		              <div className="col-xs-12 col-md-3">
-		                <select className="form-control">
-		                  <option>Value</option>
-		                  <option value="1000">$1000</option>
-		                  <option value="10000">$10, 000</option>
-		                  <option value="100000">$100, 000</option>
-		                </select>
-		              </div>
-		            </div>
-		          </form>
-		          <div className="influenced-wrap">
-		            <div className="row">
-		              {this.state.influencers.map(function(influencer){
-		              	return(
-		              		<div className="col-xs-6 col-sm-3">
-				                <div className="influenced">
-				                  <div className="i-image">
-				                    <img src={influencer.img_url} alt="" />
-				                  </div>
-				                  <span className="i-name">{influencer.first_name} {influencer.last_name}</span>
-				                  <div className="i-details">
-				                    <span>@{influencer.username}</span><br/>
-				                    <span><i className="fa fa-map"></i> No. of Influenced: {influencer.no_of_influence}</span>
-				                  </div>
-				                  <div className="social-accounts">
-				                  	<Twitter username={influencer.username} />
-				                  </div>
-				                  <div className="i-value">
-				                    <span className="value"><i className="indicator-value high"></i> ${influencer.value}</span>
-				                  </div>
-				                </div>
-				              </div>
-		              	)
-		              })}
-		            </div>
-		          </div>
-	          </div>
-          </div>
-		)
-	}
+				<h1 className="wh1-title">Influencers Match By Social Media</h1>
+	            <div className="app-cont">
+		            <ul className="nav nav-tabs" role="tablist">
+		            	<li role="presentation" className="active nt-facebook"><a href="#facebook" aria-controls="home" role="tab" data-toggle="tab"><i className="fa fa-facebook-square"></i> Facebook</a><span className="i-notification">99</span></li>
+		            	<li role="presentation" className="nt-twitter" onClick={this.displayTwitter}><a href="#twitter" aria-controls="twitter" role="tab" data-toggle="tab" onClick={this.getTwitter}><i className="fa fa-twitter-square"></i> Twitter</a><span className="i-notification">101</span></li>
+		            	<li role="presentation" className="nt-instagram"><a href="#instagram" aria-controls="instagram" role="tab" data-toggle="tab"><i className="fa fa-instagram"></i> Instagram</a><span className="i-notification">399</span></li>
+		            </ul>
+		            <Filters/>
+					<div className="tab-content">
+
+						<div role="tabpanel" className="tab-pane active">
+		            	<div className="influenced-wrap">
+						  <div className="socialm-box">
+						    <h2 className="socialm-title">Influencers List</h2>
+						  </div>
+						  <div className="row">
+		            		{this.state.influencers.map(function(influencer){
+		            			parent.getTwitter(influencer.username)
+		            			return(
+		            				<div className="col-xs-6 col-sm-3">
+								      <div className="influenced">
+								        <div className="i-image i-twitter">
+								          <img src={influencer.img_url} alt=""/>
+								        </div>
+								        <span className="i-name">{influencer.first_name} {influencer.last_name}</span>
+								        <div className="i-details">
+								          <span>@{influencer.username}</span>
+								        </div>
+								        <div className="i-value-cont clearfix">
+								          <div className="i-value-box fleft">
+								            <span className="i-value-title">Influenced</span>
+								            <i>{influencer.no_of_influence}</i>
+								          </div>
+								          <div className="i-value-box fright">
+								            <span className="i-value-title">Value</span>
+								            <i>${influencer.value}</i>
+								          </div>
+								        </div>
+
+								      </div>
+								    </div>
+		            			)
+		            		})}
+		            			</div>
+		            		</div>
+		            	</div>
+
+		            	<div role="tabpanel" className="tab-pane" id="facebook">
+		                
+		            	</div>
+
+		            	<div role="tabpanel" className="tab-pane" id="twitter">
+		            	<div className="influenced-wrap">
+						  <div className="socialm-box">
+						    <h2 className="socialm-title">Twitter Match</h2>
+						  </div>
+						  <div className="row">
+		            		{this.state.twitter.map(function(influencer){
+		            			return(
+		            				<div className="col-xs-6 col-sm-3">
+								      <div className="influenced">
+								        <div className="i-image i-twitter">
+								          <img src="images/80Q5wAFU.jpg" alt=""/>
+								        </div>
+								        <span className="i-name">Kelly Neri</span>
+								        <div className="i-details">
+								          <span>@keliMeSoftly</span>
+								        </div>
+								        <div className="i-value-cont clearfix">
+								          <div className="i-value-box fleft">
+								            <span className="i-value-title">Influenced</span>
+								            <i>129</i>
+								          </div>
+								          <div className="i-value-box fright">
+								            <span className="i-value-title">Value</span>
+								            <i>$2199</i>
+								          </div>
+								        </div>
+
+								      </div>
+								    </div>
+		            			)
+		            		})}
+		            			</div>
+		            		</div>
+		            	</div>
+		            	<div role="tabpanel" className="tab-pane" id="instagram">
+		                 
+		            	</div>
+	              	</div>
+              	</div>
+             </div>
+			)
+		}
 })
-var Twitter = React.createClass({
-	render(){
-		return(
-			<div className="twitter-wrap">
-				<div className="twitter"><a href={"https://twitter.com/" + this.props.username} target="_blank">Twitter</a></div>
-			</div>
-		)
-	}
-})
+
 ReactDOM.render(
 	<Influencers />, 
-	document.getElementById('root')
+	document.getElementById('social')
 )

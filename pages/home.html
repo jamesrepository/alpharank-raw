@@ -44,10 +44,12 @@
                         <li>Product Category</li>
                         <li>Timestamp</li>
                       </ul>
-                      <form class="f-upload-csv" action="/upload_process" enctype="multipart/form-data" name="data_file" method="post">
+                      <form class="f-upload-csv" action="/upload_process" enctype="multipart/form-data" method="post">
                         <div class="input-group form-submit">
-                          <input type="file" name="data_file" id="file" class="inputfile" onchange="this.form.submit()"/>
+                          <input type="file" name="data_file" id="file" class="inputfile" onchange="uploadFile()"/>
+
                           <label class="filename" for="file"><i class="fa fa-file-text"></i><span>Choose a file</span></label>
+
                         </div>
                       </form>
                     </div>
@@ -97,6 +99,27 @@
           .on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
         });
       })( jQuery, window, document );
+
+      function uploadFile(){
+        var input = document.getElementById("file");
+
+        var request = new XMLHttpRequest();
+        request.open('POST', 'https://api.alpharank.io/v1/uploads');
+        request.setRequestHeader('x-auth-token', '4274bd9059cf4ae6b5d339108cb7e78f');
+                
+        request.onreadystatechange = function () {
+          if (this.readyState === 4) {
+            console.log('Status:', this.status);
+            console.log('Headers:', this.getAllResponseHeaders());
+            console.log('Body:', this.responseText);
+          }
+        };
+
+        var data = new FormData();
+        data.append('data_file', input.files[0]);
+
+        request.send(data);
+      }
     </script>
   </body>
 </html>

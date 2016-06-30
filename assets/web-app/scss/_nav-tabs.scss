@@ -1,0 +1,94 @@
+.nav-tabs {
+	margin-bottom: 20px;
+	border-bottom: 1px solid $blue;
+	> li {
+		> a {
+			position: relative;
+			padding: 8px 24px;
+			color: $white;
+		    font-size: 1.4rem;
+		    font-family: 'Raleway', sans-serif;
+		    font-weight: 700;
+		    letter-spacing: 1px;
+		    border-bottom: 4px solid transparent;
+		    border-top: 0;
+		    border-left: 0;
+		    border-right: 0;
+			.fa {
+				text-align: center;
+			    font-size: 16px;
+			    margin-right: 5px;
+			    margin-bottom: 10px;
+			}
+			&:focus,
+			&:hover {
+				color: $white;
+				background: transparent;
+				border-color: $blue;
+			}
+		}
+		.i-notification {
+			position: absolute;
+		    top: 0;
+		    right: 0;
+		    background: #3b5998;
+		    border-radius: 100%;
+		    padding: 5px;
+		    font: 300 0.9rem "Montserrat",sans-serif;
+		    letter-spacing: 0.5px;
+		    display: none;
+		}
+		&.active {
+			a {
+				color: $white;
+			    border: 0;
+			    background: transparent;
+				&:focus,
+				&:hover {
+					color: $white;
+					background: transparent;
+					border: none;
+				}
+			}
+			.i-notification {
+				display: inline;
+			}
+		} 
+	}
+	.nt-facebook {
+		&.active {
+			border-bottom: 4px solid #3b5998;
+		}
+		a:hover,
+		a:focus {
+			border-bottom: 4px solid #3b5998;
+		}
+		.i-notification {
+			background: #3b5998;
+		}
+	}
+	.nt-twitter {
+		&.active {
+			border-bottom: 4px solid #00e4ff;
+		}
+		a:hover,
+		a:focus {
+			border-bottom: 4px solid #00e4ff;
+		}
+		.i-notification {
+			background: #00e4ff;
+		}
+	}
+	.nt-instagram {
+		&.active {
+			border-bottom: 4px solid #ded1c1;
+		}
+		a:hover,
+		a:focus {
+			border-bottom: 4px solid #ded1c1;
+		}
+		.i-notification {
+			background: #ded1c1;
+		}
+	}
+}
